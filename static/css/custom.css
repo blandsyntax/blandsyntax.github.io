@@ -1,0 +1,7 @@
+/* Only change the actual Markdown content */
+.inner-post-page .content,
+.inner-post-page article,
+.inner-post-page .post-content {
+  font-family: "Inter", sans-serif !important;
+}
+
