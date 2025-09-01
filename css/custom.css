@@ -1,7 +1,8 @@
-/* Only change the actual Markdown content */
-.inner-post-page .content,
-.inner-post-page article,
-.inner-post-page .post-content {
+/* Force larger Inter font for Markdown body text */
+.inner-post-page .content p,
+.inner-post-page article p,
+.inner-post-page .post-content p {
   font-family: "Inter", sans-serif !important;
+  font-size: 18px !important;   /* force override */
+  line-height: 1.6 !important;
 }
-
