@@ -28,13 +28,28 @@
 <html lang="{{ config.default_language }}">
   <head>
     {%- include "partials/head.html" %}
+    {# 🔥 Add custom fonts and overrides here #}
+    <link rel="stylesheet" href="{{ get_url(path="css/fonts.css") }}">
+    <link rel="stylesheet" href="{{ get_url(path="css/custom.css") }}">
   </head>
   {% block body %}<body id="posts">{% endblock body %}
     <div class="block-left">
       <div class="content">
-        {% if active_path != "/" %}<a href="/" class="logo"><img src="{{ "/" ~ config.extra.logo ~ "?v=" ~ get_hash(path=config.extra.logo, sha_type=512, base64=false) | safe }}" alt="logo" width="64" height="64"></a>{% endif %}
+        {% if active_path != "/" %}
+          <a href="/" class="logo">
+            <img src="{{ "/" ~ config.extra.logo ~ "?v=" ~ get_hash(path=config.extra.logo, sha_type=512, base64=false) | safe }}" alt="logo" width="64" height="64">
+          </a>
+        {% endif %}
   {% block left %}
-        <h1 class="section-title">{%- block page_title %}{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% elif term.name %}{{ '#' ~ term.name }}{% elif taxonomy.name %}{{ taxonomy.name | title }}{% endif %}{% endblock page_title %}</h1>
+        <h1 class="section-title">
+          {%- block page_title %}
+            {% if page.title %}{{ page.title }}
+            {% elif section.title %}{{ section.title }}
+            {% elif term.name %}{{ '#' ~ term.name }}
+            {% elif taxonomy.name %}{{ taxonomy.name | title }}
+            {% endif %}
+          {% endblock page_title %}
+        </h1>
   {% endblock left %}
       </div>
     </div>
@@ -72,7 +87,9 @@
       {% endblock nav %}
   {% block right %}
       <div class="content">
-        {% block date %}<div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>{% endblock date %}
+        {% block date %}
+          <div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>
+        {% endblock date %}
         {% block content %}{% endblock content %}
       {% block paginator %}
       {% if paginator.previous or paginator.next %}

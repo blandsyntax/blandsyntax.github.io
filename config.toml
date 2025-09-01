@@ -46,6 +46,8 @@ manifest = "manifest.json"
 read_time = true
 toc = true
 csp = true
+css = ["css/fonts.css", "css/custom.css"]
+
 
 [extra.placeholders]
 tags = false
@@ -123,3 +125,4 @@ mapping = "pathname"
 strict = "1"
 reactions = "1"
 lang = "en"
+
